@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bangalore house price prediction</title>
+	<link rel="icon" href="{{ url_for('static', filename = 'diabetes_icon.png') }}" type="image/icon type">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse" style="border-radius: 0px;">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="{{ url_for('home') }}" style="color: white;">BANGLORE HOUSE PRICE PREDICTION</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="https://www.linkedin.com/in/shubham-waghmare-5925a9181" style="color: white;" target="blank"><span class="fa fa-linkedin">  LinkedIn</span></a></li>
+	      <li><a href="https://www.github.com/Shubham-2905" style="color: white;" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+
+	<div class="vgrad"></div>
+
+	<div class="container vcon">
+	<div class="jumbotron text-center" style="background-color: transparent; margin-top: -40px;margin-bottom: -30px;">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+  		<h1>BANGLORE HOUSE PRICE PREDICTION</h1>
+  		<p>A MACHINE LEARNING WEB APPLICATION, BUILT WITH FLASK</p> 
+	</div>
+
+	<div class="container" style="margin-left: -20px;">
+		<div class="row">
+
+			<div class="col-sm-3"></div>
+
+			<div class="col-sm-6">
+				<center><form method="POST" action="{{ url_for('predict') }}">
+					<div class="form-group">
+						<select id="location" name="location" class="form-control">
+							<option value="">--SELECT LOCATION--</option>
+							{%for i in range(0, len)%}
+
+								<option value="{{loc[i]}}">{{loc[i]}}</option>
+							
+							{%endfor%}
+						</select>
+						<input class="form-control" type="text" name="bhk" placeholder="How many BHK do you want?">
+						<input class="form-control" type="text" name="bath" placeholder="Number of Bathroom">
+						
+	
+						<select class="form-control"id="area_type" name="area_type">
+							<option value="">--SELECT Area Type--</option>
+							<option value="Plot  Area">Plot  Area</option>
+							<option value="Super built-up  Area">Super built-up  Area</option>
+							<option value="Built-up  Area">Built-up  Area</option>
+							<option value="Carpet  Area">Carpet  Area</option>
+						</select>
+					
+						<input class="form-control" type="text" name="balcony" placeholder="Number of Balcony">
+						<input class="form-control" type="text" name="sqft" placeholder="How much Sqft area do you want?">
+
+					
+					
+					
+						<select id="availability" name="availability" class="form-control">
+							<option value="">--SELECT Availability--</option>
+							<option value="Ready To Move">Ready To Move</option>
+							<option value="Not Ready">Not Ready</option>
+						</select>
+							
+					</div>		
+					<input type="submit" class="my-cta-button" value="Predict" style="border: 1px solid blue;">
+				</form></center>
+			</div>
+
+			<div class="col-sm-3"></div>
+
+		</div>
+	</div>
+	</div>
+</body>
+</html>
